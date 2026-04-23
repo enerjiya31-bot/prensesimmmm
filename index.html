@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>birtanemm</title>
+    <style>
+        body {
+            background: #000;
+            color: #00FFFF;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 15px;
+            overflow: hidden;
+            height: 100vh;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        #terminal {
+            white-space: pre-wrap;
+            word-break: break-all;
+            height: 100%;
+            overflow-y: auto;
+            padding-bottom: 50px;
+        }
+        .line {
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal"></div>
+
+    <script>
+        let i = 315610;
+        const terminal = document.getElementById('terminal');
+
+        function addLine() {
+            const line = document.createElement('div');
+            line.className = 'line';
+            line.textContent = `${i}.birtanemm`;
+            terminal.appendChild(line);
+            terminal.scrollTop = terminal.scrollHeight;
+            i++;
+        }
+
+        for (let j = 0; j < 40; j++) {
+            addLine();
+        }
+
+        setInterval(addLine, 40);   // Hızlı akıyor (daha hızlı istersen 30 veya 25 yap)
+
+        window.onload = () => {
+            terminal.scrollTop = terminal.scrollHeight;
+        };
+    </script>
+</body>
+</html>
